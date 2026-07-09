@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #id1{
+        border: 1px solid black;
+        width: 60%;
+        display: flex;
+        /* Wraps the child elements */
+        flex-wrap: wrap;
+        /* flex-direction: row; */
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin: auto;
+        background-color:bisque;
+    }
+    .child{
+        border: 1px solid purple;
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lavender;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+</style>
+<body>
+    <h1 style="text-align: center;">Flexbox</h1>
+    <div id="id1">
+        <div class="child">Box 1</div>
+        <div class="child">Box 2</div>
+        <div class="child">Box 3</div>
+        <div class="child">Box 4</div>
+        <div class="child">Box 5</div>
+        <div class="child">Box 6</div>
+        <div class="child">Box 7</div>
+        <div class="child">Box 8</div>
+        <div class="child">Box 9</div>
+        <div class="child">Box 10</div>
+    </div>
+    
+</body>
+</html>
