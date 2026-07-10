@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A gorgeous and interactive keyboard layout built with CSS Grid and modern transitions for perfect alignment and tactile keypress animations.">
-    <title>Perfect Keyboard Layout | CSS Grid</title>
-    <!-- Google Fonts for premium typography -->
+    <title>Keyboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Base styles matching the pastel color system of the course & screenshot */
+        /* Base styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -30,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Title styling with gold accent and shadow */
         .title-container {
             text-align: center;
             margin-bottom: 24px;
@@ -45,7 +43,6 @@
             text-shadow: 1px 1px 0px #fff, 2px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Keyboard Base Container with radial glow and shadows */
         .keyboard-base {
             background: radial-gradient(circle at center, rgba(255, 240, 160, 0.45) 0%, rgba(234, 215, 201, 1) 100%);
             border-radius: 20px;
@@ -63,14 +60,12 @@
             gap: 12px;
         }
 
-        /* Keyboard Row with exactly 64 grid columns */
         .keyboard-row {
             display: grid;
             grid-template-columns: repeat(64, 1fr);
             gap: 7px;
         }
 
-        /* Individual Key Cap style with tactile 3D effect */
         .key {
             background: #fbf3eb;
             border: 1px solid #ebd5c5;
@@ -90,7 +85,6 @@
             transition: all 0.08s ease;
         }
 
-        /* Micro-interactions (hover & active states) */
         .key:hover {
             background: #fffdfb;
             box-shadow: 
@@ -106,7 +100,7 @@
             background: #f5eae0;
         }
 
-        /* Grid spans for perfectly aligned keys */
+        /* Grid spans for key alignment */
         .span-4 {
             grid-column: span 4;
         }
@@ -127,7 +121,6 @@
             grid-column: span 17;
         }
 
-        /* Highlight classes if needed */
         .key-accent {
             background-color: #f7e9df;
         }
