@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A gorgeous and interactive keyboard layout built with CSS Grid and modern transitions for perfect alignment and tactile keypress animations.">
+    <title>Perfect Keyboard Layout | CSS Grid</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base styles matching the pastel color system of the course & screenshot */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fcd0a1 0%, #ffaaa6 50%, #d4a5b8 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Outfit', sans-serif;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Title styling with gold accent and shadow */
+        .title-container {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            color: #d89f38;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            text-shadow: 1px 1px 0px #fff, 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Keyboard Base Container with radial glow and shadows */
+        .keyboard-base {
+            background: radial-gradient(circle at center, rgba(255, 240, 160, 0.45) 0%, rgba(234, 215, 201, 1) 100%);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.18),
+                0 5px 15px rgba(0, 0, 0, 0.08),
+                inset 0 3px 6px rgba(255, 255, 255, 0.6),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.05);
+            border: 2.5px solid #d4bda9;
+            max-width: 1020px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Keyboard Row with exactly 64 grid columns */
+        .keyboard-row {
+            display: grid;
+            grid-template-columns: repeat(64, 1fr);
+            gap: 7px;
+        }
+
+        /* Individual Key Cap style with tactile 3D effect */
+        .key {
+            background: #fbf3eb;
+            border: 1px solid #ebd5c5;
+            border-radius: 7px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #5d4a3e;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 
+                0 4px 0 #d0baa9,
+                0 5px 6px rgba(0, 0, 0, 0.15);
+            transition: all 0.08s ease;
+        }
+
+        /* Micro-interactions (hover & active states) */
+        .key:hover {
+            background: #fffdfb;
+            box-shadow: 
+                0 3px 0 #d0baa9,
+                0 3px 4px rgba(0, 0, 0, 0.12);
+        }
+
+        .key:active {
+            transform: translateY(4px);
+            box-shadow: 
+                0 0px 0 #d0baa9,
+                0 1px 2px rgba(0, 0, 0, 0.08);
+            background: #f5eae0;
+        }
+
+        /* Grid spans for perfectly aligned keys */
+        .span-4 {
+            grid-column: span 4;
+        }
+
+        .span-5 {
+            grid-column: span 5;
+        }
+
+        .span-6 {
+            grid-column: span 6;
+        }
+
+        .span-8 {
+            grid-column: span 8;
+        }
+
+        .span-17 {
+            grid-column: span 17;
+        }
+
+        /* Highlight classes if needed */
+        .key-accent {
+            background-color: #f7e9df;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-container">
+        <h1>Keyboard</h1>
+    </div>
+
+    <!-- Main Keyboard container -->
+    <main class="keyboard-base" id="keyboard-main">
+        
+        <!-- ROW 1 (All keys span 4, Total: 16 keys * 4 = 64) -->
+        <div class="keyboard-row" id="row-1">
+            <div class="key span-4" id="key-esc">Esc</div>
+            <div class="key span-4" id="key-f1">F1</div>
+            <div class="key span-4" id="key-f2">F2</div>
+            <div class="key span-4" id="key-f3">F3</div>
+            <div class="key span-4" id="key-f4">F4</div>
+            <div class="key span-4" id="key-f5">F5</div>
+            <div class="key span-4" id="key-f6">F6</div>
+            <div class="key span-4" id="key-f7">F7</div>
+            <div class="key span-4" id="key-f8">F8</div>
+            <div class="key span-4" id="key-f9">F9</div>
+            <div class="key span-4" id="key-f10">F10</div>
+            <div class="key span-4" id="key-f11">F11</div>
+            <div class="key span-4" id="key-f12">F12</div>
+            <div class="key span-4" id="key-insect">Insect</div>
+            <div class="key span-4" id="key-printscr">printScr</div>
+            <div class="key span-4" id="key-delete">Delete</div>
+        </div>
+
+        <!-- ROW 2 (13 keys * 4 + Backspace 8 + Home 4 = 64) -->
+        <div class="keyboard-row" id="row-2">
+            <div class="key span-4" id="key-tilde">~</div>
+            <div class="key span-4" id="key-1">1</div>
+            <div class="key span-4" id="key-2">2</div>
+            <div class="key span-4" id="key-3">3</div>
+            <div class="key span-4" id="key-4">4</div>
+            <div class="key span-4" id="key-5">5</div>
+            <div class="key span-4" id="key-6">6</div>
+            <div class="key span-4" id="key-7">7</div>
+            <div class="key span-4" id="key-8">8</div>
+            <div class="key span-4" id="key-9">9</div>
+            <div class="key span-4" id="key-10">10</div>
+            <div class="key span-4" id="key-minus">-</div>
+            <div class="key span-4" id="key-equal">=</div>
+            <div class="key span-8" id="key-backspace">Backspace</div>
+            <div class="key span-4" id="key-home">Home</div>
+        </div>
+
+        <!-- ROW 3 (Tab 6 + 12 keys * 4 + \ 6 + Pg Up 4 = 64) -->
+        <div class="keyboard-row" id="row-3">
+            <div class="key span-6" id="key-tab">Tab</div>
+            <div class="key span-4" id="key-q">Q</div>
+            <div class="key span-4" id="key-w">W</div>
+            <div class="key span-4" id="key-e">E</div>
+            <div class="key span-4" id="key-r">R</div>
+            <div class="key span-4" id="key-t">T</div>
+            <div class="key span-4" id="key-y">Y</div>
+            <div class="key span-4" id="key-u">U</div>
+            <div class="key span-4" id="key-i">I</div>
+            <div class="key span-4" id="key-o">O</div>
+            <div class="key span-4" id="key-p">P</div>
+            <div class="key span-4" id="key-lbrace">{</div>
+            <div class="key span-4" id="key-rbrace">}</div>
+            <div class="key span-6" id="key-backslash">\</div>
+            <div class="key span-4" id="key-pgup">Pg Up</div>
+        </div>
+
+        <!-- ROW 4 (Caps Lock 6 + 12 keys * 4 + Enter 6 + Pg Dn 4 = 64) -->
+        <div class="keyboard-row" id="row-4">
+            <div class="key span-6" id="key-caps">Caps Lock</div>
+            <div class="key span-4" id="key-a">A</div>
+            <div class="key span-4" id="key-s">S</div>
+            <div class="key span-4" id="key-d">D</div>
+            <div class="key span-4" id="key-f">F</div>
+            <div class="key span-4" id="key-g">G</div>
+            <div class="key span-4" id="key-h">H</div>
+            <div class="key span-4" id="key-i-row4">I</div>
+            <div class="key span-4" id="key-j">J</div>
+            <div class="key span-4" id="key-k">K</div>
+            <div class="key span-4" id="key-l">L</div>
+            <div class="key span-4" id="key-semicolon">;</div>
+            <div class="key span-4" id="key-quote">"</div>
+            <div class="key span-6" id="key-enter">Enter</div>
+            <div class="key span-4" id="key-pgdn">Pg Dn</div>
+        </div>
+
+        <!-- ROW 5 (Shift-Left 8 + 10 keys * 4 + Shift-Right 8 + Up 4 + End 4 = 64) -->
+        <div class="keyboard-row" id="row-5">
+            <div class="key span-8" id="key-shift-l">Shift</div>
+            <div class="key span-4" id="key-z">Z</div>
+            <div class="key span-4" id="key-x">X</div>
+            <div class="key span-4" id="key-c">C</div>
+            <div class="key span-4" id="key-v">V</div>
+            <div class="key span-4" id="key-b">B</div>
+            <div class="key span-4" id="key-n">N</div>
+            <div class="key span-4" id="key-m">M</div>
+            <div class="key span-4" id="key-gt1">&gt;</div>
+            <div class="key span-4" id="key-gt2">&gt;</div>
+            <div class="key span-4" id="key-question">?</div>
+            <div class="key span-8" id="key-shift-r">Shift</div>
+            <div class="key span-4" id="key-up">&uarr;</div>
+            <div class="key span-4" id="key-end">End</div>
+        </div>
+
+        <!-- ROW 6 (4 keys * 5 + Space 17 + 3 keys * 5 + 3 arrows * 4 = 64) -->
+        <div class="keyboard-row" id="row-6">
+            <div class="key span-5" id="key-ctrl-l">Ctrl</div>
+            <div class="key span-5" id="key-fn-l">Fn</div>
+            <div class="key span-5" id="key-win">Win</div>
+            <div class="key span-5" id="key-alt-l">Alt</div>
+            <div class="key span-17" id="key-space">space</div>
+            <div class="key span-5" id="key-alt-r">Alt</div>
+            <div class="key span-5" id="key-fn-r">Fn</div>
+            <div class="key span-5" id="key-ctrl-r">Ctrl</div>
+            <div class="key span-4" id="key-left">&larr;</div>
+            <div class="key span-4" id="key-down">&darr;</div>
+            <div class="key span-4" id="key-right">&rarr;</div>
+        </div>
+
+    </main>
+
+</body>
+</html>
