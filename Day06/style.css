@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    width: 100%;
+    height: 80px;
+    background-color: #f1b28d;
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    /* border: 1px solid violet; */
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu {
+    /* border: 1px solid purple; */
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#banner {
+    width: 100%;
+    /* border: 1px solid #f1b28d; */
+    display: flex;
+    justify-content: space-between;
+    margin:auto;
+    margin-top: 20px;
+}
+
+#banner > div {
+    /* border: 1px solid #f1b28d; */
+    width: 49%;
+}
+
+#child1 > h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color:cornflowerblue
+}
+
+#child1 > h1 > span {
+    color: #f1b28d;
+}
+
+#grid {
+    /* border: 1px solid #f1b28d; */
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    text-align: center;
+    margin-top: 50px;
+}
