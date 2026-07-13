@@ -49,6 +49,7 @@ a {
 #banner > div {
     /* border: 1px solid #f1b28d; */
     width: 49%;
+    text-align: center;
 }
 
 #child1 > h1 {
@@ -68,5 +69,13 @@ a {
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
     text-align: center;
+    margin-top: 50px;
+}
+
+#price {
+    /* border: 1px solid #f1b28d; */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
     margin-top: 50px;
 }
