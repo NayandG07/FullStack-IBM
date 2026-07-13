@@ -7,112 +7,190 @@
 nav {
     width: 100%;
     height: 80px;
-    background-color: #f1b28d;
+    background: linear-gradient(120deg, #92f3ce, #d9956b);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-#logo {
-    /* border: 1px solid violet; */
-    width: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+#logo h2 {
+    color: white;
+    font-size: 30px;
+    letter-spacing: 2px;
 }
+
 
 #menu {
-    /* border: 1px solid purple; */
-    width: 50%;
     display: flex;
-    justify-content: space-around;
+    gap: 40px;
 }
 
-#menu>p {
+
+#menu p {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
+
 
 a {
     text-decoration: none;
-    color: black;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
 }
+
+
+a:hover {
+    color: #ffd700;
+    transform: translateY(-2px);
+}
+
 
 #banner {
-    width: 100%;
-    /* border: 1px solid #f1b28d; */
+    width: 90%;
+    margin: 60px auto;
     display: flex;
     justify-content: space-between;
-    margin: auto;
-    margin-top: 20px;
+    align-items: center;
+    gap: 40px;
 }
+
 
 #banner>div {
-    /* border: 1px solid #f1b28d; */
-    width: 49%;
-    text-align: center;
+    width: 50%;
 }
 
-#child1>h1 {
-    font-size: 50px;
-    font-weight: 700;
-    color: cornflowerblue
+
+#child1 {
+    text-align: left;
 }
 
-#child1>h1>span {
-    color: #f1b28d;
+
+#child1 h1 {
+    font-size: 55px;
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
-#child1 > p{
-    text-align: center;
+
+#child1 h1 span {
+    color: #0f766e;
 }
+
+
+#child1 p {
+    line-height: 1.8;
+    color: #666;
+}
+
+
+#child2 img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: 0.4s;
+}
+
+
+#child2 img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 
 #grid {
-    /* border: 1px solid #f1b28d; */
+    width: 90%;
+    margin: 80px auto;
     display: grid;
-    margin: auto;
     grid-template-columns: repeat(4, 1fr);
-    gap: 50px;
-    text-align: center;
-    margin-top: 50px;
+    gap: 30px;
 }
 
-#price {
-    margin: 50px;
+
+#grid div {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    transition: 0.4s;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#price>div {
-    border: 1px solid black;
-    width: 300px;
-    height: 300px;
+
+#grid div:hover {
+    transform: translateY(-10px);
+}
+
+
+#grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+
+#price {
+    width: 90%;
+    margin: 80px auto;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px;
-    margin-top: 50px;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+#price>div {
+    background: white;
+    width: 32%;
+    padding: 40px 30px;
     border-radius: 20px;
-}
-
-#price>div>h2 {
-    font-size: 30px;
-    font-weight: 700;
-    color: cornflowerblue;
-}
-
-#price>div>p {
     text-align: center;
-    padding: 0 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
 }
 
-#button {
-    width: 100px;
-    height: 30px;
-    background-color: teal;
-    border: none;
-    color: white;
 
+#price>div:hover {
+    transform: translateY(-10px);
+}
+
+
+#price h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+
+#price p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+#price h3 {
+    font-size: 40px;
+    color: teal;
+    margin-bottom: 25px;
+}
+
+
+button {
+    border: none;
+    padding: 14px 30px;
+    background: teal;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+button:hover {
+    background: yellow;
+    padding: 20px
 }
