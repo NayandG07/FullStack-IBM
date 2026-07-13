@@ -4,10 +4,19 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #fdfaf6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 nav {
     width: 100%;
     height: 80px;
-    background: linear-gradient(120deg, #92f3ce, #d9956b);
+    background: linear-gradient(120deg, #84fab0 0%, #fccb90 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -144,13 +153,24 @@ a:hover {
 
 
 #price>div {
-    background: white;
     width: 32%;
     padding: 40px 30px;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: 0.4s;
+}
+
+#price1 {
+    background-color: #e8f4f8;
+}
+
+#price2 {
+    background-color: #fdf5e6;
+}
+
+#price3 {
+    background-color: #f4e8f8;
 }
 
 
@@ -193,4 +213,48 @@ button {
 button:hover {
     background: yellow;
     padding: 20px
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    padding: 50px 20px 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-content h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-content p {
+    color: #b0b0b0;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.socials a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.socials a:hover {
+    color: #00f2fe;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #777;
+    font-size: 14px;
 }
