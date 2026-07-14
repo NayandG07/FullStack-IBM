@@ -1,3 +1,10 @@
+.kings-regular {
+    font-family: "Kings", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 @keyframes text-animation {
     0% {
         opacity: 0;
