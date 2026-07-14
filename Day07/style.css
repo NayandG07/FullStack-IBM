@@ -15,18 +15,10 @@
 
 
 /* Animation */
-
-
-/* 
-Animation in CSS is a more versatile way to create complex animations with multiple stages. It allows you to define the animation behavior, keyframes, and timing using the @keyframes rule and the animation property. */
-
-
+/* Animation in CSS is a more versatile way to create complex animations with multiple stages. It allows you to define the animation behavior, keyframes, and timing using the @keyframes rule and the animation property. */
 
 /* Keyframe */
-
-
 /* Keyframes are the foundation of animations in CSS. They define the specific stages of an animation using percentage values (0%, 50%, 100%) or specific names (from, to). Keyframes describe how properties change over the duration of the animation. */
-
 
 /* slide */
 
