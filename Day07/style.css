@@ -1,6 +1,6 @@
 /* Translate transition is a type of CSS transition that animates the movement of an element from one position to another. It is typically used to smoothly change an element's position over a specified duration when triggered by a user interaction or a change in CSS properties. */
 .parent {
-    display: none;
+    display: flex;
     width: 100px;
     height: 100px;
     background-color: blue;
@@ -53,7 +53,7 @@ Animation in CSS is a more versatile way to create complex animations with multi
 }
 
 .parent1 {
-    display: none;
+    display: flex;
     width: 100px;
     height: 100px;
     border: 2px solid green !important;
@@ -79,7 +79,7 @@ Animation in CSS is a more versatile way to create complex animations with multi
 
 
 .parent2 {
-    display: none;
+    display: flex;
     width: 100px;
     height: 100px;
     border: 1px solid purple;
@@ -91,7 +91,7 @@ Animation in CSS is a more versatile way to create complex animations with multi
 
 /* Rotate */
 .parent3 {
-    display: none;
+    display: flex;
     width: 100px;
     height: 100px;
     background-color: yellow;
@@ -106,7 +106,7 @@ Animation in CSS is a more versatile way to create complex animations with multi
 
 
 .parent4 {
-    display: none;
+    display: flex;
     width: 100px;
     height: 100px;
     background-color: lightblue;
