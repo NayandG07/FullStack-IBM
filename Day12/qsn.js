@@ -1,5 +1,3 @@
-
-
 let products = {
     laptop: 45000,
     iphone: 67000,
@@ -10,8 +8,18 @@ let products = {
 // discount is 15 % on each product
 // Find out final price of each product after discount in the certain relevant data structure using higher order functions
 
-let ans = Object.values(products).map((e)=>{
-    return e - (e * 0.15)
-})
-console.log(ans)
+// let result = Object.values(products).map((e)=>{
+//     return e - (e * 0.15)
+// })
+// console.log(result)
+
+
+let ans = Object.fromEntries(
+    Object.entries(products).map(([e, i]) => [
+        e,
+        i - i * 0.15
+    ])
+);
+
+console.log(ans);
 
