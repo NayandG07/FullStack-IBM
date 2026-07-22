@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        form{
+            border: 1px solid gray;
+            width: 30%;
+            padding: 10px;
+            border-radius: 5px;
+            margin: auto;
+            text-align: center;
+        }
+        input{
+            width: 98%;
+            padding: 10px;
+            margin-top: 15px;
+        }
+        #btn{
+            width: 90%;
+            border: 1px solid none;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    
+    <form id="form">
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="text" id="email" placeholder="Enter your email">
+        <input type="password" id="password" placeholder="Enter your password">
+        <button type="submit" id="btn">Submit</button>
+    </form>
 </body>
 <script src="script.js"></script>
+<!-- <script src="qsn.js"></script> -->
 </html>
