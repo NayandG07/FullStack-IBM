@@ -25,6 +25,12 @@ form.addEventListener("submit", (e) => {
     arr.push(user);
     localStorage.setItem("users", JSON.stringify(arr));
 
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i].email === user.email) {
+            return alert("User already exists");
+        }
+    }
+
 })
 
 // let dataFromLocalStorage = localStorage.getItem("userData");
@@ -34,5 +40,11 @@ form.addEventListener("submit", (e) => {
 // console.log(JSON.parse(dataFromLocalStorage));
 // console.log(JSON.parse(dataFromLocalStorage).fullName); // Accessing fullName from local storage data
 
+let dataFromLocalStorage = JSON.parse(localStorage.getItem("users"));
+console.log(dataFromLocalStorage);
 
 
+const loginBtn = document.getElementById("login");
+loginBtn.addEventListener("click", () => {
+    window.location.href = "login.html";
+});
