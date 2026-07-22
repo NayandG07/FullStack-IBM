@@ -22,15 +22,15 @@ form.addEventListener("submit", (e) => {
 
     // Multiple user data storage in local storage
     let arr = JSON.parse(localStorage.getItem("users")) || [];
-    arr.push(user);
-    localStorage.setItem("users", JSON.stringify(arr));
-
+    
     for (let i = 0; i < arr.length; i++) {
         if(arr[i].email === user.email) {
             return alert("User already exists");
         }
     }
-
+    
+    arr.push(user);
+    localStorage.setItem("users", JSON.stringify(arr));
 })
 
 // let dataFromLocalStorage = localStorage.getItem("userData");
@@ -45,6 +45,8 @@ console.log(dataFromLocalStorage);
 
 
 const loginBtn = document.getElementById("login");
+
 loginBtn.addEventListener("click", () => {
     window.location.href = "login.html";
 });
+
