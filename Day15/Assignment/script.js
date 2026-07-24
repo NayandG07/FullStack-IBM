@@ -3,36 +3,32 @@ async function fetchData() {
     const data = await response.json();
 
     const filter = document.getElementById("filterByCategory");
-    filter.addEventListener("change", (event) => {
-        const selectedCategory = event.target.value;
-        let filteredData;
-        if (selectedCategory === "all") {
-            filteredData = data;
-        } else {
-            filteredData = data.filter((product) => {
-                return product.category === selectedCategory;
+    const sort = document.getElementById("sortByPrice");
+
+    function updateProducts() {
+        let result = data.slice();
+        // Filter
+        if (filter.value !== "all") {
+            result = result.filter((product) => {
+                return product.category === filter.value;
             });
         }
-        document.getElementById("productContainer").innerHTML = "";
-        renderData(filteredData);
-    });
 
-    // const sort = document.getElementById("sortByPrice");
-    // sort.addEventListener("change", (event) => {
-    //     const selectedSort = event.target.value;
-    //     let sortedData = data.slice(); // Copy
-    //     if (selectedSort === "low-high") {
-    //         sortedData.sort((a, b) => a.price - b.price);
-    //     }
-    //     else if (selectedSort === "high-low") {
-    //         sortedData.sort((a, b) => b.price - a.price);
-    //     }
-    //     else if (selectedSort === "rating") {
-    //         sortedData.sort((a, b) => b.rating.rate - a.rating.rate);
-    //     }
-    //     document.getElementById("productContainer").innerHTML = "";
-    //     renderData(sortedData);
-    // });
+        // Sort
+        if (sort.value === "low-high") {
+            result.sort((a, b) => a.price - b.price);
+        }
+        else if (sort.value === "high-low") {
+            result.sort((a, b) => b.price - a.price);
+        }
+        else if (sort.value === "rating") {
+            result.sort((a, b) => b.rating.rate - a.rating.rate);
+        }
+        document.getElementById("productContainer").innerHTML = "";
+        renderData(result);
+    }
+    filter.addEventListener("change", updateProducts);
+    sort.addEventListener("change", updateProducts);
 
     renderData(data);
 }
