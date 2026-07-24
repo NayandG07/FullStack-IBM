@@ -7,18 +7,17 @@ async function fetchData() {
 }
 
 async function renderData(data) {
-    const loader = document.getElementById('loader');
-    loader.style.display = "none";
-
     const parentContainer = document.getElementById('productContainer');
 
     data.forEach((e, i) => {
         console.log(e);
-        const cartDiv = document.createElement('div');
+        const loader = document.getElementById('loader');
+        loader.style.display = "none";
+        const cardDiv = document.createElement('div');
 
-        cartDiv.style.border = "1px solid black";
-        cartDiv.style.textAlign = "center";
-        cartDiv.style.boxShadow = "rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        // cardDiv.style.border = "1px solid black";
+        cardDiv.style.textAlign = "center";
+        cardDiv.style.boxShadow="#0f62fe 5px 5px, rgba(45, 25, 155, 0.3) 10px 10px, rgba(82, 56, 155, 0.2) 15px 15px, rgba(124, 112, 181, 0.1) 20px 20px, rgba(135, 129, 205, 0.05) 25px 25px"
 
 
         const cat = document.createElement("p");
@@ -40,25 +39,25 @@ async function renderData(data) {
 
         const button = document.createElement("button");
         button.innerText = "Buy Now";
-        button.style.backgroundColor = "#f0c14b";
+        button.style.backgroundColor = "#4a2fe4";
         button.style.border = "1px solid none";
         button.style.padding = "5px";
         button.style.borderRadius = "5px";
         button.style.width = "100px";
         button.style.color = "white";
 
-        cartDiv.append(cat, img, price, title, button);
-        parentContainer.append(cartDiv);
+        cardDiv.append(cat, img, price, title, button);
+        parentContainer.append(cardDiv);
 
         const filter = document.getElementById('filterByCategory');
         filter.addEventListener('change', (event) => {
             const selectedCategory = event.target.value;
             if (selectedCategory === "all") {
-                cartDiv.style.display = "block";
+                cardDiv.style.display = "block";
             } else if (selectedCategory === e.category) {
-                cartDiv.style.display = "block";
+                cardDiv.style.display = "block";
             } else {
-                cartDiv.style.display = "none";
+                cardDiv.style.display = "none";
             }
         })
 
