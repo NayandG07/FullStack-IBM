@@ -49,6 +49,21 @@ async function renderData(data) {
 
         cartDiv.append(cat, img, price, title, button);
         parentContainer.append(cartDiv);
+
+        const filter = document.getElementById('filterByCategory');
+        filter.addEventListener('change', (event) => {
+            const selectedCategory = event.target.value;
+            if (selectedCategory === "all") {
+                cartDiv.style.display = "block";
+            } else if (selectedCategory === e.category) {
+                cartDiv.style.display = "block";
+            } else {
+                cartDiv.style.display = "none";
+            }
+        })
+
+        
+
     })
 }
 
