@@ -6,19 +6,20 @@ async function fetchData() {
     renderData(data);
 }
 
-
 async function renderData(data) {
+    const loader = document.getElementById('loader');
+    loader.style.display = "none";
+
     const parentContainer = document.getElementById('productContainer');
 
-    data.forEach((e,i) => {
+    data.forEach((e, i) => {
         console.log(e);
         const cartDiv = document.createElement('div');
 
         cartDiv.style.border = "1px solid black";
-        // cartDiv.style.width = "40%";
         cartDiv.style.textAlign = "center";
         cartDiv.style.boxShadow = "rgba(0, 0, 0, 0.24) 0px 3px 8px";
-        
+
 
         const cat = document.createElement("p");
         cat.innerText = e.category;
