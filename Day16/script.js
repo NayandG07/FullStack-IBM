@@ -75,26 +75,31 @@ async function renderData(data) {
         button.style.width = "100px";
         button.style.color = "white";
 
-        cardDiv.append(cat, img, price, title, button);
+        const button1 = document.createElement("button");
+        button1.innerText = "Details";
+        button1.style.backgroundColor = "#2f59e4";
+        button1.style.border = "1px solid none";
+        button1.style.padding = "5px";
+        button1.style.borderRadius = "5px";
+        button1.style.width = "100px";
+        button1.style.color = "white";
+        button1.style.marginTop = "10px";
+
+        button1.addEventListener("click", () => {
+            singleProduct(e);
+        });
+
+        cardDiv.append(cat, img, price, title, button, button1);
         parentContainer.append(cardDiv);
-
-
-        // filter.addEventListener('change', (event) => {
-        //     const selectedCategory = event.target.value;
-        //     if (selectedCategory === "all") {
-        //         cardDiv.style.display = "block";
-        //     } else if (selectedCategory === e.category) {
-        //         cardDiv.style.display = "block";
-        //     } else {
-        //         cardDiv.style.display = "none";
-        //     }
-        // })
-
     })
 }
 
+singleProduct = (e) => {
+    localStorage.setItem("singleProduct", JSON.stringify(e));
+    window.location.href = "singleProduct.html";
+}
+
+
 fetchData();
-
-
 
 
