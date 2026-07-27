@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopApp - Products</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ---- Controls ---- */
+        .main-container {
+            width: 92%;
+            max-width: 1400px;
+            margin: 30px auto;
+        }
+
+        .controls-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        #tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 9px 20px;
+            border-radius: 999px;
+            border: 1.5px solid #c1c7cd;
+            background: white;
+            color: #343a3f;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tab-btn:hover {
+            border-color: #0f62fe;
+            color: #0f62fe;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #0f62fe, #0043ce);
+            color: white;
+            border-color: transparent;
+        }
+
+        #filter {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #filter select {
+            padding: 9px 14px;
+            border-radius: 8px;
+            border: 1.5px solid #c1c7cd;
+            background: white;
+            font-size: 13px;
+            color: #343a3f;
+            cursor: pointer;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        #filter select:focus {
+            border-color: #0f62fe;
+        }
+
+        /* ---- Loader ---- */
+        #loader {
+            border: 4px solid #eb9516;
+            border-top-color: #0f62fe;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            margin: 80px auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ---- Product Grid ---- */
+        #productContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #dde1e6;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.25s;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .product-card img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            margin: auto;
+        }
+
+        .cat-tag {
+            font-size: 11px;
+            color: #0f62fe;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .product-title {
+            font-size: 13px;
+            color: #343a3f;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f62fe;
+        }
+
+        .card-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card-buttons button {
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, #0f62fe, #0043ce);
+            color: white;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-cart {
+            background: white;
+            color: #0f62fe;
+            border: 1.5px solid #0f62fe !important;
+        }
+
+        .btn-cart:hover { background: #edf3ff; }
+
+        .btn-wish {
+            background: white;
+            color: #6f6f6f;
+            border: 1.5px solid #c1c7cd !important;
+        }
+
+        .btn-wish:hover {
+            border-color: #da1e28 !important;
+            color: #da1e28;
+        }
+
+        @media (max-width: 900px) {
+            #productContainer { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 540px) {
+            #productContainer { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">SHOP</a>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search products...">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="cart.html">Cart <span id="cartBadge" class="cart-count">0</span></a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="login.html">Login / Signup</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+
+            <div class="controls-wrapper">
+                <!-- Category Tabs -->
+                <div id="tabs">
+                    <button class="tab-btn active" data-category="all">All</button>
+                    <button class="tab-btn" data-category="men's clothing">Men's</button>
+                    <button class="tab-btn" data-category="women's clothing">Women's</button>
+                    <button class="tab-btn" data-category="jewelery">Jewelry</button>
+                    <button class="tab-btn" data-category="electronics">Electronics</button>
+                </div>
+
+                <!-- Sort & Filter dropdowns -->
+                <div id="filter">
+                    <select id="sortByPrice">
+                        <option value="default">Sort by: Featured</option>
+                        <option value="low-high">Price: Low to High</option>
+                        <option value="high-low">Price: High to Low</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                    <select id="filterByCategory">
+                        <option value="all">All Categories</option>
+                        <option value="men's clothing">Men's Clothing</option>
+                        <option value="women's clothing">Women's Clothing</option>
+                        <option value="jewelery">Jewelry</option>
+                        <option value="electronics">Electronics</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="loader"></div>
+            <div id="productContainer"></div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="wishlist.html">Wishlist</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ShopApp. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+</body>
+</html>

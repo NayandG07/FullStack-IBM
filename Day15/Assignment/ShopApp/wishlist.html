@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopApp - Wishlist</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-wrapper {
+            width: 92%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .page-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #21272a;
+            margin-bottom: 28px;
+            border-left: 4px solid #0f62fe;
+            padding-left: 14px;
+        }
+
+        /* Wishlist Grid */
+        #wishlistItems {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .wishlist-card {
+            background: white;
+            border: 1px solid #dde1e6;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.25s;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .wishlist-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .wishlist-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            margin: auto;
+        }
+
+        .item-category {
+            font-size: 11px;
+            color: #0f62fe;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .item-title {
+            font-size: 13px;
+            color: #343a3f;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .item-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f62fe;
+        }
+
+        .card-buttons {
+            display: flex;
+            gap: 6px;
+            flex-direction: column;
+        }
+
+        .card-buttons button {
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .btn-add-cart {
+            background: linear-gradient(135deg, #0f62fe, #0043ce);
+            color: white;
+        }
+
+        .btn-add-cart:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-remove {
+            background: white;
+            color: #da1e28;
+            border: 1.5px solid #da1e28 !important;
+        }
+
+        .btn-remove:hover { background: #fff1f1; }
+
+        .clear-btn {
+            margin-top: 28px;
+            padding: 11px 28px;
+            border-radius: 8px;
+            background: white;
+            color: #da1e28;
+            border: 1.5px solid #da1e28;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .clear-btn:hover { background: #fff1f1; }
+
+        @media (max-width: 900px) {
+            #wishlistItems { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 540px) {
+            #wishlistItems { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">SHOP</a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search products...">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart <span id="cartBadge" class="cart-count">0</span></a></li>
+                    <li><a href="wishlist.html" class="active">Wishlist</a></li>
+                    <li><a href="login.html">Login / Signup</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-wrapper">
+            <h1 class="page-title">My Wishlist</h1>
+            <div id="wishlistItems"></div>
+            <div id="clearWishlistWrapper" style="display:none; text-align:center;">
+                <button class="clear-btn" onclick="clearWishlist()">Clear Wishlist</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="wishlist.html">Wishlist</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ShopApp. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="wishlist.js"></script>
+</body>
+</html>

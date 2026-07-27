@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopApp - Login / Signup</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-wrapper {
+            max-width: 420px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Toggle tabs between Login and Signup */
+        .auth-tabs {
+            display: flex;
+            border: 1.5px solid #dde1e6;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 28px;
+        }
+
+        .auth-tab-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: white;
+            color: #525252;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .auth-tab-btn.active {
+            background: linear-gradient(135deg, #0f62fe, #0043ce);
+            color: white;
+        }
+
+        /* Form Box */
+        .auth-box {
+            background: white;
+            border: 1px solid #dde1e6;
+            border-radius: 14px;
+            padding: 32px;
+        }
+
+        .auth-box h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #21272a;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #525252;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #c1c7cd;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #21272a;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #0f62fe;
+            box-shadow: 0 0 0 3px rgba(15, 98, 254, 0.12);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #0f62fe, #0043ce);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 6px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(15, 98, 254, 0.35);
+        }
+
+        .auth-message {
+            text-align: center;
+            font-size: 13px;
+            color: #6f6f6f;
+            margin-top: 16px;
+        }
+
+        /* Hidden form by default */
+        #signupForm {
+            display: none;
+        }
+
+        /* Error / success feedback */
+        .feedback {
+            font-size: 13px;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 14px;
+            display: none;
+        }
+
+        .feedback.error {
+            background: #fff1f1;
+            color: #da1e28;
+            border: 1px solid #ffd7d9;
+        }
+
+        .feedback.success {
+            background: #defbe6;
+            color: #198038;
+            border: 1px solid #a7f0ba;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">SHOP</a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search products...">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart <span id="cartBadge" class="cart-count">0</span></a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="login.html" class="active">Login / Signup</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="auth-wrapper">
+
+            <!-- Toggle Tabs -->
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" id="loginTabBtn" onclick="showTab('login')">Login</button>
+                <button class="auth-tab-btn" id="signupTabBtn" onclick="showTab('signup')">Sign Up</button>
+            </div>
+
+            <div class="auth-box">
+
+                <!-- LOGIN FORM -->
+                <form id="loginForm">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Login</button>
+                    <div class="feedback" id="loginFeedback"></div>
+                    <p class="auth-message">Don't have an account?
+                        <a href="#" onclick="showTab('signup')" style="color:#0f62fe; font-weight:600;">Sign up</a>
+                    </p>
+                </form>
+
+                <!-- SIGNUP FORM -->
+                <form id="signupForm">
+                    <h2>Create Account</h2>
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                    <div class="feedback" id="signupFeedback"></div>
+                    <p class="auth-message">Already have an account?
+                        <a href="#" onclick="showTab('login')" style="color:#0f62fe; font-weight:600;">Login</a>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="wishlist.html">Wishlist</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ShopApp. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+</html>

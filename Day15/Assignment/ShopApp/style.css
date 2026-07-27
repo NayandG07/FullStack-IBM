@@ -1,0 +1,313 @@
+/* ===========================
+   ShopApp - Shared Stylesheet
+   Based on IBM blue design system
+   =========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #21272a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== HEADER ===== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #dde1e6;
+}
+
+.container {
+    width: 92%;
+    max-width: 1400px;
+    height: 72px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    min-width: 120px;
+    padding: 0 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0f62fe, #0043ce);
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(15, 98, 254, 0.25);
+    transition: 0.2s;
+}
+
+.logo a:hover {
+    transform: translateY(-2px);
+}
+
+.search-box {
+    flex: 1;
+}
+
+.search-box input {
+    width: 100%;
+    height: 44px;
+    padding: 0 18px;
+    border: 1px solid #c1c7cd;
+    border-radius: 999px;
+    background: #fff;
+    font-size: 14px;
+    color: #21272a;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: #0f62fe;
+    box-shadow: 0 0 0 3px rgba(15, 98, 254, 0.12);
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    position: relative;
+    color: #343a3f;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0f62fe, #4589ff);
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #0f62fe;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav ul li:last-child a {
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #0f62fe, #0043ce);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(15, 98, 254, 0.25);
+}
+
+nav ul li:last-child a:hover {
+    transform: translateY(-2px);
+    color: white;
+}
+
+nav ul li:last-child a::after {
+    display: none;
+}
+
+.cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #da1e28;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+/* ===== MAIN ===== */
+main {
+    flex: 1;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    margin-top: 60px;
+    background: #161616;
+    color: white;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #0f62fe, #4589ff, #0f62fe);
+}
+
+.footer-container {
+    width: 92%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 50px 0 36px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.footer-column a {
+    display: block;
+    color: #c6c6c6;
+    margin-bottom: 12px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: #78a9ff;
+    transform: translateX(4px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 20px;
+    color: #a8a8a8;
+    font-size: 13px;
+}
+
+/* ===== UTILITY ===== */
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0f62fe, #0043ce);
+    color: white;
+    box-shadow: 0 4px 14px rgba(15, 98, 254, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(15, 98, 254, 0.4);
+}
+
+.btn-outline {
+    background: white;
+    color: #0f62fe;
+    border: 1.5px solid #0f62fe;
+}
+
+.btn-outline:hover {
+    background: #edf3ff;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #6f6f6f;
+}
+
+.empty-state .empty-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.empty-state h2 {
+    font-size: 22px;
+    color: #21272a;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .container {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 16px 0;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .search-box {
+        width: 100%;
+        order: 3;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 24px;
+    }
+}

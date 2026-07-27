@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopApp - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ---- Hero Section ---- */
+        .hero {
+            background: linear-gradient(135deg, #0f62fe 0%, #0043ce 60%, #001d6c 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.85;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons a {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .hero-btn-primary {
+            background: white;
+            color: #0f62fe;
+        }
+
+        .hero-btn-primary:hover {
+            background: #edf3ff;
+            transform: translateY(-2px);
+        }
+
+        .hero-btn-outline {
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            color: white;
+        }
+
+        .hero-btn-outline:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        /* ---- Categories Section ---- */
+        .section {
+            width: 92%;
+            max-width: 1400px;
+            margin: 60px auto;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #21272a;
+            margin-bottom: 28px;
+            border-left: 4px solid #0f62fe;
+            padding-left: 14px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .category-card {
+            background: white;
+            border: 1px solid #dde1e6;
+            border-radius: 12px;
+            padding: 28px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .category-card:hover {
+            border-color: #0f62fe;
+            box-shadow: 0 6px 20px rgba(15, 98, 254, 0.12);
+            transform: translateY(-3px);
+        }
+
+        .category-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #21272a;
+        }
+
+        /* ---- Featured Products ---- */
+        #featuredProducts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #dde1e6;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.25s;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .product-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin: auto;
+        }
+
+        .product-card .cat-tag {
+            font-size: 11px;
+            color: #0f62fe;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .product-card .product-title {
+            font-size: 13px;
+            color: #343a3f;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-card .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f62fe;
+        }
+
+        .product-card-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .product-card-buttons button {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .btn-add-cart {
+            background: linear-gradient(135deg, #0f62fe, #0043ce);
+            color: white;
+        }
+
+        .btn-add-cart:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-wishlist {
+            background: white;
+            color: #0f62fe;
+            border: 1.5px solid #0f62fe !important;
+        }
+
+        .btn-wishlist:hover {
+            background: #edf3ff;
+        }
+
+        /* ---- Features Banner ---- */
+        .features-banner {
+            background: white;
+            border: 1px solid #dde1e6;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            padding: 28px 24px;
+            text-align: center;
+            border-right: 1px solid #dde1e6;
+        }
+
+        .feature-item:last-child {
+            border-right: none;
+        }
+
+        .feature-item .feat-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .feature-item h4 {
+            font-size: 15px;
+            color: #21272a;
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: #6f6f6f;
+        }
+
+        #featuredLoader {
+            border: 4px solid #eb9516;
+            border-top-color: #0f62fe;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            margin: 60px auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            #featuredProducts { grid-template-columns: repeat(2, 1fr); }
+            .features-banner { grid-template-columns: 1fr; }
+            .feature-item { border-right: none; border-bottom: 1px solid #dde1e6; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">SHOP</a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search products...">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart <span id="cartBadge" class="cart-count">0</span></a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="login.html">Login / Signup</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Discover Everything You Need</h1>
+                <p>Shop from thousands of products across electronics, fashion, jewelry and more.</p>
+                <div class="hero-buttons">
+                    <a href="products.html" class="hero-btn-primary">Shop Now</a>
+                    <a href="login.html" class="hero-btn-outline">Create Account</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <div class="section">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="window.location.href='products.html?category=men\'s clothing'">
+                    <span class="category-icon">👕</span>
+                    <h3>Men's Clothing</h3>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=women\'s clothing'">
+                    <span class="category-icon">👗</span>
+                    <h3>Women's Clothing</h3>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=jewelery'">
+                    <span class="category-icon">💍</span>
+                    <h3>Jewelry</h3>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=electronics'">
+                    <span class="category-icon">📱</span>
+                    <h3>Electronics</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="section">
+            <div class="features-banner">
+                <div class="feature-item">
+                    <span class="feat-icon">🚚</span>
+                    <h4>Free Shipping</h4>
+                    <p>On orders above $50</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feat-icon">🔄</span>
+                    <h4>Easy Returns</h4>
+                    <p>30-day return policy</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feat-icon">🔒</span>
+                    <h4>Secure Payment</h4>
+                    <p>100% safe checkout</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURED PRODUCTS -->
+        <div class="section">
+            <h2 class="section-title">Featured Products</h2>
+            <div id="featuredLoader"></div>
+            <div id="featuredProducts"></div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="wishlist.html">Wishlist</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ShopApp. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>
