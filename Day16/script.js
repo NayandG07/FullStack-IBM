@@ -85,11 +85,21 @@ async function renderData(data) {
         button1.style.color = "white";
         button1.style.marginTop = "10px";
 
+        const button3 = document.createElement("button");
+        button3.innerText = "Add to Cart";
+        button3.style.backgroundColor = "#2f59e4";
+        button3.style.border = "1px solid none";
+        button3.style.padding = "5px";
+        button3.style.borderRadius = "5px";
+        button3.style.width = "100px";
+        button3.style.color = "white";
+        button3.style.marginTop = "10px";
+
         button1.addEventListener("click", () => {
             singleProduct(e);
         });
 
-        cardDiv.append(cat, img, price, title, button, button1);
+        cardDiv.append(cat, img, price, title, button, button1, button3);
         parentContainer.append(cardDiv);
     })
 }
