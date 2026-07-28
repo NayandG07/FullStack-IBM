@@ -2,7 +2,7 @@ const fetchData = async () => {
     const res = await fetch('http://localhost:8000/users');
 
     const response = await res.json();
-    console.log(response);
+    renderData(response);
 }
 
 function renderData(data) {
@@ -22,5 +22,4 @@ function renderData(data) {
     });
 }
 
-renderData();
 fetchData();
