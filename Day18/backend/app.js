@@ -21,9 +21,6 @@ app.listen(PORT, async () => {
 app.get('/', (req, res) => {
     res.send('<h2 style="color: violet; text-align: center;">Server is running, Welcome!</h2>');
 });
-// app.get('/products', (req, res) => {
-//     res.sendFile(__dirname + '/products.json');
-// });
 
 const users = [
     {
