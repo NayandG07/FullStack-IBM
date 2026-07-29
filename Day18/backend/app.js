@@ -2,12 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 require('dotenv').config();
-const port = process.env.PORT;
+const PORT = process.env.PORT;
+const { connection } = require('./config/db');
 
 app.use(cors());
 
-app.listen(port, () => {
-    console.log(`Server is running on ${port}`);
+app.listen(PORT, async () => {
+    try {
+        await connection;
+        console.log("Connection to DB is established");
+    } catch (error) {
+        console.log(error);
+    }
+    console.log(`Server is running on ${PORT}`);
 });
 
 
