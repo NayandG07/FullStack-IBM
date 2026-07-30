@@ -4,8 +4,11 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT;
 const { connection } = require('./config/db');
+const { registration } = require('./controller/user.controller');
 
 app.use(cors());
+app.use(express.json());
+app.use('/api/registration', registration);
 
 app.listen(PORT, async () => {
     try {

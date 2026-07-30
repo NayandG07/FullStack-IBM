@@ -1,9 +1,8 @@
-const mongoose = require('mongoose');
-const dns = require('dns');
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+const mongoose = require("mongoose");
+require('dotenv').config()
 
-const connection = mongoose.connect(process.env.MONGO_URI);
+const connection = mongoose.connect(process.env.MONGODB_URI);
 
-module.exports = {
+module.exports={
     connection
 }
