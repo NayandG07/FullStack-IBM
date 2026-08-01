@@ -20,25 +20,9 @@ app.listen(PORT, async () => {
     console.log(`Server is running on ${PORT}`);
 });
 
-
 app.get('/', (req, res) => {
     res.send('<h2 style="color: violet; text-align: center;">Server is running, Welcome!</h2>');
 });
-
-const users = [
-    {
-        "name": "Bikash",
-        "uni": "AdtU"
-    },
-    {
-        "name": "Dhimon",
-        "uni": "AdtU"
-    },
-    {
-        "name": "Asif",
-        "uni": "AdtU"
-    }
-]
 
 app.get('/users', (req, res) => {
     res.json(users);
