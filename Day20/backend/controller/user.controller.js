@@ -9,7 +9,7 @@ const registration = async (req, res) => {
         return res.send({ "message": "All fields are required" });
     }
 
-    const existUser = userModel.findOne({email});
+    const existUser = await userModel.findOne({email});
 
     if(existUser){
         return res.status(400).send({"message":"User already exist"})

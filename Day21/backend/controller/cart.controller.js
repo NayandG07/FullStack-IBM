@@ -1,3 +1,5 @@
+const { userModel } = require("../model/user.model");
+
 const userProfile = async (req, res) => {
     const {userId} = req.headers;
     try {

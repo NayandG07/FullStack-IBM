@@ -64,13 +64,11 @@ const loginForm = document.getElementById('loginForm');
 loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const fullName = document.getElementById("loginName").value;
     const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
-    const phoneNumber = document.getElementById("loginPhone").value;
 
     const userData = {
-        fullName, email, password, phoneNumber
+        email, password
     }
 
     const response = await fetch("http://localhost:8000/api/login", {
@@ -86,6 +84,8 @@ loginForm.addEventListener("submit", async (e) => {
     const res = await response.json();
 
     if (response.ok) {
+        localStorage.setItem("token", res.user.token);
+        localStorage.setItem("user", JSON.stringify(res.user.user));
         window.location.href = "user.html";
         Toastify({
             text: res.message,

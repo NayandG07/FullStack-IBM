@@ -1,6 +1,6 @@
-const loginForm = document.getElementById('registerForm');
+const regForm = document.getElementById('registerForm');
 
-loginForm.addEventListener("submit", async (e) => {
+regForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const fullName = document.getElementById("registerName").value;
@@ -20,41 +20,72 @@ loginForm.addEventListener("submit", async (e) => {
         body: JSON.stringify(userData)
     });
 
-
-
     const res = await response.json();
 
     if (response.ok) {
         Toastify({
             text: res.message,
             duration: 3000,
-            destination: "https://github.com/apvarun/toastify-js",
-            newWindow: true,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
             style: {
                 background: "linear-gradient(to right, #00b09b, #96c93d)",
             },
-            onClick: function () { } // Callback after click
         }).showToast();
     } else {
         Toastify({
             text: res.message,
             duration: 3000,
-            destination: "https://github.com/apvarun/toastify-js",
-            newWindow: true,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "left", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "top",
+            position: "left",
+            stopOnFocus: true,
             style: {
-                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                background: "linear-gradient(to right, #ff5f6d, #ffc371)",
             },
-            onClick: function () { } // Callback after click
         }).showToast();
     }
+})
 
+const loginForm = document.getElementById('loginForm');
 
+loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const userData = {
+        email, password
+    }
+
+    const response = await fetch("http://localhost:8000/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+    });
+
+    const res = await response.json();
+
+    if (response.ok) {
+        localStorage.setItem("token", res.user.token);
+        localStorage.setItem("user", JSON.stringify(res.user.user));
+        window.location.href = "user.html";
+    } else {
+        Toastify({
+            text: res.message,
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "left",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+            },
+        }).showToast();
+    }
 })

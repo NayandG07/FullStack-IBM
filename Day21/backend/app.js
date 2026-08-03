@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/registration', registration);
 app.use('/api/login', userLogin);
-app.use('/api/cart', authCheck, userProfile);
+app.use('/api/user', authCheck, userProfile);
 
 app.listen(PORT, async () => {
     try {
