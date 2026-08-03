@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
+const { userModel } = require("../model/user.model");
 
 const authCheck = (req, res, next) => {
     const token = req.headers.authorization;
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
         if(err){
             return res.status(401).send({"message":"Unauthorized access", error: err.message})
         } else {

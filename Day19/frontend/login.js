@@ -24,7 +24,7 @@ loginForm.addEventListener("submit", async (e) => {
 
     const res = await response.json();
 
-    if (res.ok) {
+    if (response.ok) {
         Toastify({
             text: res.message,
             duration: 3000,

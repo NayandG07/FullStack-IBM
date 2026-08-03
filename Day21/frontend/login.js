@@ -24,7 +24,7 @@ regForm.addEventListener("submit", async (e) => {
 
     const res = await response.json();
 
-    if (res.ok) {
+    if (response.ok) {
         Toastify({
             text: res.message,
             duration: 3000,
@@ -85,7 +85,7 @@ loginForm.addEventListener("submit", async (e) => {
 
     const res = await response.json();
 
-    if (res.ok) {
+    if (response.ok) {
         window.location.href = "user.html";
         Toastify({
             text: res.message,

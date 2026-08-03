@@ -4,7 +4,9 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT;
 const { connection } = require('./config/db');
-const { registration } = require('./controller/user.controller');
+const { registration, userLogin } = require('./controller/user.controller');
+const { authCheck } = require('./middleware/auth');
+const { userProfile } = require('./controller/cart.controller');
 
 app.use(cors());
 app.use(express.json());
@@ -27,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/users', (req, res) => {
-    res.json(users);
+    res.json([]);
 });
 
 

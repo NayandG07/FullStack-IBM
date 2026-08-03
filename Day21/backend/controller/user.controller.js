@@ -33,11 +33,11 @@ const registration = async (req, res) => {
     }
 }
 
-const userLogin = (req, res) => {
+const userLogin = async (req, res) => {
     const {email, password} = req.body;
     
     try {
-        const existUser = userModel.findOne({email});
+        const existUser = await userModel.findOne({email});
         if(existUser){
             bcrypt.compare(password, existUser.password, function(err, result) {
                 if(result){
@@ -47,6 +47,8 @@ const userLogin = (req, res) => {
                     res.status(400).send({"message":"Invalid credentials"})
                 }
             });
+        } else {
+            res.status(404).send({"message":"User not found"});
         }
     } catch (error) {
         res.status(500).send({"message":"Internal server error", error: error.message})
