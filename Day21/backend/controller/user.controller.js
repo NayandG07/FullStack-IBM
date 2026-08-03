@@ -1,5 +1,6 @@
 const { userModel } = require("../model/user.model");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const registration = async (req, res) => {
 
@@ -9,7 +10,7 @@ const registration = async (req, res) => {
         return res.send({ "message": "All fields are required" });
     }
 
-    const existUser = userModel.findOne({email});
+    const existUser = await userModel.findOne({email});
 
     if(existUser){
         return res.status(400).send({"message":"User already exist"})
@@ -38,9 +39,10 @@ const userLogin = (req, res) => {
     try {
         const existUser = userModel.findOne({email});
         if(existUser){
-            bycrypt.compare(password, existUser.password, function(err, result) {
+            bcrypt.compare(password, existUser.password, function(err, result) {
                 if(result){
-                    res.status(200).send({"message":"Login successful"})
+                    const token = jwt.sign({userId: existUser._id}, process.env.JWT_SECRET, {expiresIn: "1h"});
+                    res.status(200).send({"message":"Login successful", user: {user:existUser, token}});
                 }else{
                     res.status(400).send({"message":"Invalid credentials"})
                 }
