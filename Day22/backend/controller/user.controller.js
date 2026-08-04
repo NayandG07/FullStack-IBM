@@ -55,7 +55,50 @@ const userLogin = async (req, res) => {
     }
 }
 
+const changePassword = async (req, res) => {
+    const { oldPassword, newPassword } = req.body;
+    const { userId } = req.headers;
+
+    if (oldPassword == "" || newPassword == "") {
+        return res.status(400).send({ "message": "All fields are required" });
+    }
+
+    const existUser = await userModel.findById(userId);
+
+    try {
+        bcrypt.compare(oldPassword, existUser.password, async function (err, result) {
+            if (result) {
+                bcrypt.hash(newPassword, 6, async function (err, hash) {
+                    if (err) {
+                        return res.status(500).send({ "message": "Internal server error", error: err.message });
+                    }
+                    existUser.password = hash;
+                    await existUser.save();
+                    res.status(200).send({ "message": "Password changed successfully" });
+                });
+            } else {
+                res.status(400).send({ "message": "Password is incorrect" });
+            }
+        });
+    } catch (error) {
+        res.status(500).send({ "message": "Internal server error", error: error.message });
+    }
+}
+
+const getAllUsers = async (req, res) => {
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 5;
+    const skip = (page - 1) * limit;
+
+    try {
+        const user = await userModel.find().skip(skip).limit(limit).select("-password");
+    } catch (error) {
+        res.status(500).send({ "message": "Internal server error", error: error.message });
+    }
+}
+
 module.exports = {
     registration,
-    userLogin
+    userLogin,
+    changePassword
 }
