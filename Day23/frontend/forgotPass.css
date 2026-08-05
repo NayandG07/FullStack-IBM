@@ -28,20 +28,6 @@ main {
     font-size: 14px;
 }
 
-.lock-icon {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.lock-icon svg {
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, #eef4ff, #dce8ff);
-    border-radius: 50%;
-    padding: 14px;
-}
-
 .back-link {
     display: block;
     text-align: center;
@@ -63,12 +49,6 @@ main {
     padding: 10px 0;
 }
 
-.success-state svg {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 16px;
-    display: block;
-}
 
 .success-state h3 {
     font-size: 22px;

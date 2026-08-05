@@ -2,6 +2,7 @@ const forgotPasswordForm = document.getElementById('forgotPasswordForm');
 const successState = document.getElementById('successState');
 const backLink = document.getElementById('backLink');
 const resetBtn = document.getElementById('resetBtn');
+const formHeader = document.getElementById('formHeader');
 
 forgotPasswordForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -10,7 +11,6 @@ forgotPasswordForm.addEventListener('submit', async (e) => {
     const newPassword = document.getElementById('fpNewPassword').value;
     const confirmPassword = document.getElementById('fpConfirmPassword').value;
 
-    // Validate passwords match
     if (newPassword !== confirmPassword) {
         Toastify({
             text: 'Passwords do not match!',
@@ -26,7 +26,6 @@ forgotPasswordForm.addEventListener('submit', async (e) => {
         return;
     }
 
-    // Disable button to prevent double submit
     resetBtn.disabled = true;
     resetBtn.textContent = 'Resetting...';
 
@@ -42,9 +41,9 @@ forgotPasswordForm.addEventListener('submit', async (e) => {
         const res = await response.json();
 
         if (response.ok) {
-            // Hide the form and show success state
             forgotPasswordForm.style.display = 'none';
             backLink.style.display = 'none';
+            formHeader.style.display = 'none';
             successState.style.display = 'block';
 
             Toastify({
