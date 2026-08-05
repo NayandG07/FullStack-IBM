@@ -108,9 +108,37 @@ const getAllUsers = async (req, res) => {
     }
 }
 
+const forgotPassword = async (req, res) => {
+    const { email, newPassword } = req.body;
+
+    if (!email || !newPassword) {
+        return res.status(400).send({ "message": "Email and new password are required" });
+    }
+
+    try {
+        const existUser = await userModel.findOne({ email });
+
+        if (!existUser) {
+            return res.status(404).send({ "message": "User not found with this email" });
+        }
+
+        bcrypt.hash(newPassword, 6, async function (err, hash) {
+            if (err) {
+                return res.status(500).send({ "message": "Internal server error", error: err.message });
+            }
+            existUser.password = hash;
+            await existUser.save();
+            res.status(200).send({ "message": "Password reset successfully" });
+        });
+    } catch (error) {
+        res.status(500).send({ "message": "Internal server error", error: error.message });
+    }
+}
+
 module.exports = {
     registration,
     userLogin,
     changePassword,
-    getAllUsers
+    getAllUsers,
+    forgotPassword
 }

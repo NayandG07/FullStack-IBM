@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT;
 const { connection } = require('./config/db');
-const { registration, userLogin, changePassword, getAllUsers } = require('./controller/user.controller');
+const { registration, userLogin, changePassword, getAllUsers, forgotPassword } = require('./controller/user.controller');
 const { authCheck } = require('./middleware/auth');
 const { userProfile } = require('./controller/cart.controller');
 
@@ -15,6 +15,7 @@ app.use('/api/login', userLogin);
 app.use('/api/user', authCheck, userProfile);
 app.use('/api/change-password', authCheck, changePassword);
 app.use('/api/users', getAllUsers);
+app.use('/api/forgot-password', forgotPassword);
 
 app.listen(PORT, async () => {
     try {

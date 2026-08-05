@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,189 +8,169 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
+
 <body>
 
-<header>
-    <div class="container">
-        <div class="logo">
-            <a href="index.html">LOGO</a>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">LOGO</a>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search products...">
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="login.html">Login / Signup</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="search-box">
-            <input type="text" placeholder="Search products...">
-        </div>
+    <main class="auth-section">
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Wishlist</a></li>
-                <li><a href="login.html">Login / Signup</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        <div class="auth-card">
 
-<main class="auth-section">
+            <div class="auth-tabs">
+                <button class="active">Login</button>
+                <button>Register</button>
+            </div>
 
-    <div class="auth-card">
+            <div class="form-container">
 
-        <div class="auth-tabs">
-            <button class="active">Login</button>
-            <button>Register</button>
-        </div>
+                <form id="loginForm">
 
-        <div class="form-container">
+                    <h2>Welcome Back</h2>
 
-            <form id="loginForm">
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email">
+                    </div>
 
-                <h2>Welcome Back</h2>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password">
+                    </div>
 
-                <div class="input-group">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        id="loginEmail"
-                        placeholder="Enter your email"
-                    >
-                </div>
+                    <button type="submit" class="primary-btn">
+                        Login
+                    </button>
+                    <p><a href="changepassword.html">Change Password</a></p>
+                    <p><a href="forgetpassword.html">Forget Password</a></p>
 
-                <div class="input-group">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        id="loginPassword"
-                        placeholder="Enter your password"
-                    >
-                </div>
+                </form>
 
-                <button type="submit" class="primary-btn">
-                    Login
-                </button>
+                <form id="registerForm" style="display:none;">
 
-            </form>
+                    <h2>Create Account</h2>
 
-            <form id="registerForm" style="display:none;">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="registerName" placeholder="Enter your name">
+                    </div>
 
-                <h2>Create Account</h2>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="registerEmail" placeholder="Enter your email">
+                    </div>
 
-                <div class="input-group">
-                    <label>Full Name</label>
-                    <input
-                        type="text"
-                        id="registerName"
-                        placeholder="Enter your name"
-                    >
-                </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="registerPassword" placeholder="Create password">
+                    </div>
 
-                <div class="input-group">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        id="registerEmail"
-                        placeholder="Enter your email"
-                    >
-                </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="registerPhone" placeholder="Phone Number">
+                    </div>
 
-                <div class="input-group">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        id="registerPassword"
-                        placeholder="Create password"
-                    >
-                </div>
+                    <button type="submit" class="primary-btn">
+                        Register
+                    </button>
 
-                <div class="input-group">
-                    <label>Phone Number</label>
-                    <input
-                        type="text"
-                        id="registerPhone"
-                        placeholder="Phone Number"
-                    >
-                </div>
+                </form>
 
-                <button type="submit" class="primary-btn">
-                    Register
-                </button>
-
-            </form>
+            </div>
 
         </div>
 
-    </div>
+    </main>
 
-</main>
+    <footer>
 
-<footer>
+        <div class="footer-container">
 
-    <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Careers</a>
+            </div>
 
-        <div class="footer-column">
-            <h3>Company</h3>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Careers</a>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="#">Products</a>
+                <a href="#">Cart</a>
+                <a href="#">Wishlist</a>
+            </div>
+
         </div>
 
-        <div class="footer-column">
-            <h3>Support</h3>
-            <a href="#">Help Center</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms</a>
+        <div class="footer-bottom">
+            © 2026 Your Company. All Rights Reserved.
         </div>
 
-        <div class="footer-column">
-            <h3>Quick Links</h3>
-            <a href="#">Products</a>
-            <a href="#">Cart</a>
-            <a href="#">Wishlist</a>
-        </div>
+    </footer>
 
-    </div>
+    <script>
 
-    <div class="footer-bottom">
-        © 2026 Your Company. All Rights Reserved.
-    </div>
+        const tabs = document.querySelectorAll(".auth-tabs button");
 
-</footer>
+        const login = document.getElementById("loginForm");
 
-<script>
+        const register = document.getElementById("registerForm");
 
-const tabs=document.querySelectorAll(".auth-tabs button");
+        tabs[0].onclick = () => {
 
-const login=document.getElementById("loginForm");
+            tabs[0].classList.add("active");
 
-const register=document.getElementById("registerForm");
+            tabs[1].classList.remove("active");
 
-tabs[0].onclick=()=>{
+            login.style.display = "block";
 
-tabs[0].classList.add("active");
+            register.style.display = "none";
 
-tabs[1].classList.remove("active");
+        };
 
-login.style.display="block";
+        tabs[1].onclick = () => {
 
-register.style.display="none";
+            tabs[1].classList.add("active");
 
-};
+            tabs[0].classList.remove("active");
 
-tabs[1].onclick=()=>{
+            login.style.display = "none";
 
-tabs[1].classList.add("active");
+            register.style.display = "block";
 
-tabs[0].classList.remove("active");
+        };
 
-login.style.display="none";
-
-register.style.display="block";
-
-};
-
-</script>
-<script src="login.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    </script>
+    <script src="login.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </body>
+
 </html>
