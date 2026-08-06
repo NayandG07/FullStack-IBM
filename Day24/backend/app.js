@@ -35,5 +35,5 @@ app.get('/users', (req, res) => {
     res.json([]);
 });
 
-
+app.use("/api", userRouter);
 
