@@ -4,18 +4,14 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT;
 const { connection } = require('./config/db');
-const { registration, userLogin, changePassword, getAllUsers, forgotPassword } = require('./controller/user.controller');
 const { authCheck } = require('./middleware/auth');
 const { userProfile } = require('./controller/cart.controller');
+const userRouter = require('./routes/user.route');
 
 app.use(cors());
 app.use(express.json());
-app.use('/api/registration', registration);
-app.use('/api/login', userLogin);
 app.use('/api/user', authCheck, userProfile);
-app.use('/api/change-password', authCheck, changePassword);
-app.use('/api/users', getAllUsers);
-app.use('/api/forgot-password', forgotPassword);
+app.use('/api', userRouter);
 
 app.listen(PORT, async () => {
     try {
@@ -34,6 +30,4 @@ app.get('/', (req, res) => {
 app.get('/users', (req, res) => {
     res.json([]);
 });
-
-app.use("/api", userRouter);
 
