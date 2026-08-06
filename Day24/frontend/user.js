@@ -1,6 +1,6 @@
 const fetchUser = async () => {
     try {
-        const response = await fetch("http://localhost:8000/api/user", {
+        const response = await fetch(API_URL + "/api/user", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

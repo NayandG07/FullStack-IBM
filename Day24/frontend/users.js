@@ -7,7 +7,7 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
 const getUsers = async () => {
-    const response = await fetch(`http://localhost:8000/api/users?page=${currentPage}&limit=${limit}`, {
+    const response = await fetch(`${API_URL}/api/users?page=${currentPage}&limit=${limit}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

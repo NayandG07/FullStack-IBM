@@ -30,7 +30,7 @@ forgotPasswordForm.addEventListener('submit', async (e) => {
     resetBtn.textContent = 'Resetting...';
 
     try {
-        const response = await fetch('http://localhost:8000/api/forgot-password', {
+        const response = await fetch(API_URL + "/api/forgot-password", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

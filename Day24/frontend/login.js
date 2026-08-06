@@ -12,7 +12,7 @@ regForm.addEventListener("submit", async (e) => {
         fullName, email, password, phoneNumber
     }
 
-    const response = await fetch("http://localhost:8000/api/registration", {
+    const response = await fetch(API_URL + "/api/registration", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -71,7 +71,7 @@ loginForm.addEventListener("submit", async (e) => {
         email, password
     }
 
-    const response = await fetch("http://localhost:8000/api/login", {
+    const response = await fetch(API_URL + "/api/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -1,5 +1,5 @@
 const fetchData = async() =>{
-    const res = await fetch("http://localhost:8000/users");
+    const res = await fetch(API_URL + "/users");
 
     const response = await res.json();
 
