@@ -1,15 +1,11 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
-import Home from './pages/Home'
-import Contact from './pages/Contact'
+import AllRoutes from '../routes/AllRoutes'
 
 function App() {
 
   return (
     <>
-      <Home/>
-      <Contact/>
+      <AllRoutes />
     </>
   )
 }
