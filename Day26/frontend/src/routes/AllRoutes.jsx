@@ -7,6 +7,7 @@ const AllRoutes = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/home" element={<Home />} />
         </Routes>
     )
 }
