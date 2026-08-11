@@ -98,15 +98,15 @@ const Home = () => {
             </div> */}
 
             {/* Users */}
-            {/* <div>
-                <h3>Fetched Users: </h3>
+            <div>
+                <h3 style={{ fontWeight: 'bold' }}>Fetched Users: </h3>
                 {users.map((user) => (
                     <div key={user.id} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
                         <h4>{user.name.firstname} {user.name.lastname}</h4>
                         <p>{user.email}</p>
                     </div>
                 ))}
-            </div> */}
+            </div>
 
             
         </div>
