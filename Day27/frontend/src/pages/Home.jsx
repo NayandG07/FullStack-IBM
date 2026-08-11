@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const Home = () => {
     const [count, setCount] = useState(3); // Hook
@@ -44,8 +45,8 @@ const Home = () => {
             <h2>Welcome to the Home Page</h2>
             <p>This is the home page content.</p>
             <p>Count: {count}</p>
-            <button onClick={handleIncrement}>Increment</button>
-            <button onClick={handleDecrement}>Decrement</button>
+            <Button onClick={handleIncrement}>Increment</Button>
+            <Button onClick={handleDecrement}>Decrement</Button>
 
             {/* Products */}
             {/* <div>
