@@ -1,3 +1,5 @@
+import { Input } from "@chakra-ui/react"
+
 const Contact = () => {
     return (
         <div>
@@ -5,13 +7,13 @@ const Contact = () => {
             <p>This is the contact page content.</p>
             <form>
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" />
+                <Input type="text" id="name" name="name" />
                 <br />
                 <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" />
+                <Input type="email" id="email" name="email" />
                 <br />
                 <label htmlFor="message">Message:</label>
-                <textarea id="message" name="message"></textarea>
+                <Input type="textarea" id="message" name="message" />
                 <br />
                 <button type="submit">Submit</button>
             </form>
