@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div>
             <h1>My App</h1>
-            <nav style={{ backgroundColor: 'rgb(36, 31, 77)', padding: '10px' }}>
+            <nav style={{ backgroundColor: 'var(--header-bg)', padding: '10px', transition: 'background-color 0.2s' }}>
                 <ul style={{ listStyleType: 'none', display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
                     <li><Link to="/home">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
