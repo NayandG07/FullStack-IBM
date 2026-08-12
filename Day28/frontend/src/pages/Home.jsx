@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Marquee } from "@chakra-ui/react";
+import ButtonWithProp from "@/components/ButtonWithProp";
+
 import {
     IoLogoFigma,
     IoLogoGitlab,
@@ -48,10 +50,6 @@ const Home = () => {
 
     const handleIncrement = () => {
         setCount(count + 1);
-        setCount(count + 1);
-        setCount(count + 1);
-        setCount(count + 1);
-        setCount(count + 1);
     };
 
     const handleDecrement = () => {
@@ -63,8 +61,8 @@ const Home = () => {
             <h2>Welcome to the Home Page</h2>
             <p>This is the home page content.</p>
             <p>Count: {count}</p>
-            <Button onClick={handleIncrement}>Increment</Button>
-            <Button onClick={handleDecrement}>Decrement</Button>
+            <ButtonWithProp label="Increment" onClick={handleIncrement} />
+            <ButtonWithProp label="Decrement" onClick={handleDecrement} />
 
             {/* Marquee */}
             <Marquee.Root autoFill spacing="2rem" style={{ marginTop: '2rem' }}>
