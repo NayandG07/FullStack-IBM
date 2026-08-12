@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
-// import { Button } from "@/components/ui/button";
-import { Marquee } from "@chakra-ui/react";
+import { Marquee, Button, HStack } from "@chakra-ui/react";
 import ButtonWithProp from "@/components/ButtonWithProp";
+import PaginationComp from "@/components/PaginationComp";
+import { RiArrowRightLine, RiMailLine } from "react-icons/ri";
 
 import {
     IoLogoFigma,
@@ -64,6 +65,15 @@ const Home = () => {
             <ButtonWithProp label="Increment" onClick={handleIncrement} />
             <ButtonWithProp label="Decrement" onClick={handleDecrement} />
 
+            <HStack mt="4">
+                <Button colorPalette="gray" variant="solid" spinnerPlacement="end">
+                    <RiMailLine /> Email
+                </Button>
+                <Button colorPalette="teal" variant="outline">
+                    Call us <RiArrowRightLine />
+                </Button>
+            </HStack>
+
             {/* Marquee */}
             <Marquee.Root autoFill spacing="2rem" style={{ marginTop: '2rem' }}>
                 <Marquee.Viewport>
@@ -106,7 +116,8 @@ const Home = () => {
                 ))}
             </div>
 
-            
+            <PaginationComp />
+
         </div>
     )
 }
