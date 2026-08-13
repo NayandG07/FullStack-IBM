@@ -4,6 +4,7 @@ import { Marquee, Button, HStack } from "@chakra-ui/react";
 import ButtonWithProp from "@/components/ButtonWithProp";
 import PaginationComp from "@/components/PaginationComp";
 import ProductsTable from "@/components/ProductsTable";
+import MapData from "@/components/MapData";
 import { RiArrowRightLine, RiMailLine } from "react-icons/ri";
 
 import {
@@ -101,10 +102,7 @@ const Home = () => {
             <div>
                 <h3 style={{ fontWeight: 'bold' }}>Fetched Users: </h3>
                 {users.map((user) => (
-                    <div key={user.id} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
-                        <h4>{user.name.firstname} {user.name.lastname}</h4>
-                        <p>{user.email}</p>
-                    </div>
+                    <MapData key={user.id} item={user} />
                 ))}
             </div>
 
