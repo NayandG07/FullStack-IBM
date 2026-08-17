@@ -100,10 +100,12 @@ const Home = () => {
 
             {/* Users */}
             <div>
-                <h3 style={{ fontWeight: 'bold' }}>Fetched Users: </h3>
-                {users.map((user) => (
-                    <MapData key={user.id} item={user} />
-                ))}
+                <h3 style={{ fontWeight: 'bold', margin: '2rem 0 1rem', textAlign: 'left' }}>Fetched Users: </h3>
+                <div className="users-grid">
+                    {users.map((user) => (
+                        <MapData key={user.id} item={user} />
+                    ))}
+                </div>
             </div>
 
             <PaginationComp />
